@@ -5,13 +5,9 @@
 #
 class freebsd_kld::params {
   case $::osfamily {
-    'Debian': {
-      $package_name = 'freebsd_kld'
-      $service_name = 'freebsd_kld'
-    }
-    'RedHat', 'Amazon': {
-      $package_name = 'freebsd_kld'
-      $service_name = 'freebsd_kld'
+    'FreeBSD': {
+      $packages = {}
+      $modules  = {}
     }
     default: {
       fail("${::operatingsystem} not supported")
