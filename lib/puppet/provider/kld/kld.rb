@@ -14,10 +14,10 @@ Puppet::Type.type(:kld).provide(:freebsd) do
   end
 
   def destroy
-    kldunload('-n', @resource[:name])
+    kldunload(@resource[:name])
   end
 
   def exists?
-    kldstat('-qm', @resource[:name])
+    kldstat('-v').include? @resource[:name]
   end
 end
