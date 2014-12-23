@@ -10,14 +10,14 @@ Puppet::Type.type(:kld).provide(:freebsd) do
   confine :operatingsystem => :freebsd
 
   def create
-    system("/sbin/kldload -q #{@resource[:name]}")
+    kldload('-q', @resource[:name])
   end
 
   def destroy
-    system("/sbin/kldunload -q -n #{@resource[:name]}")
+    kldunload('-n', @resource[:name])
   end
 
   def exists?
-    system("/sbin/kldstat -n #{@resource[:name]} > /dev/null")
+    kldstat('-qm', @resource[:name])
   end
 end
