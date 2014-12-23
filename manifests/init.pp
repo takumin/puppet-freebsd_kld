@@ -12,6 +12,8 @@ class freebsd_kld (
   $modules  = $::freebsd_kld::params::modules,
 ) inherits ::freebsd_kld::params {
 
+  include freebsd_sysrc
+
   # validate parameters here
 
   class { '::freebsd_kld::install': } ->
