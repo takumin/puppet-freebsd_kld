@@ -4,7 +4,7 @@
 #
 class freebsd_kld::install {
 
-  package { $::freebsd_kld::package_name:
+  package { $::freebsd_kld::packages:
     ensure => present,
   }
 }
