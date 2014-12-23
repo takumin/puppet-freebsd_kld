@@ -9,5 +9,5 @@ class freebsd_kld::config {
       rcfile => '/boot/loader.conf',
     }
   }
-  create_resources(boot_load, $freebsd_kld::modules)
+  boot_load { $freebsd_kld::modules: }
 }
