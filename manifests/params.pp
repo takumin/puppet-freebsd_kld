@@ -6,8 +6,8 @@
 class freebsd_kld::params {
   case $::osfamily {
     'FreeBSD': {
-      $packages = {}
-      $modules  = {}
+      $packages = []
+      $modules  = []
     }
     default: {
       fail("${::operatingsystem} not supported")

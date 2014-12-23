@@ -14,7 +14,8 @@ class freebsd_kld (
 
   include freebsd_sysrc
 
-  # validate parameters here
+  validate_array($packages)
+  validate_array($modules)
 
   class { '::freebsd_kld::install': } ->
   class { '::freebsd_kld::config': } ~>
