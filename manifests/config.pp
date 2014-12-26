@@ -5,8 +5,9 @@
 class freebsd_kld::config {
   define boot_load {
     sysrc { "${name}_load":
-      value => 'YES',
-      path  => '/boot/loader.conf',
+      ensure => present,
+      value  => 'YES',
+      path   => '/boot/loader.conf',
     }
   }
   boot_load { $freebsd_kld::modules: }
